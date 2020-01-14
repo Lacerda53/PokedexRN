@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import { View, Image } from 'react-native';
 import Gif from '~/assets/pokeball.gif';
 
-export default class Components extends Component {
+export default class MyLoading extends Component {
   render() {
     return (
-      <View style={{opacity: (this.props.show) ? 1 : 0}}>
-        <Image source={Gif}/>
+      <View style={{flex: 1 //(this.props.animating) ? 1 : 0}}
+    }}>
+        <Image source={require('~/assets/pokeball.gif')} style={{
+          flex: 1, justifyContent: "center", alignItems: "center", width: 300, height:300}}/>
       </View>
     );
   }

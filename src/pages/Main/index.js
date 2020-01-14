@@ -28,7 +28,7 @@ export default class Main extends Component {
     this.loadPokemons();
   }
   loadPokemons = async () => {
-    this.setState({isLoading: true})
+    this.setState({ isLoading: true })
     const response = await api.get("/pokedex");
 
     const repositories = await response.data;
@@ -40,11 +40,11 @@ export default class Main extends Component {
   render() {
     return (
       <Container>
+          <MyLoading/>
         <Header>
           <Title>Pokedex</Title>
         </Header>
         <Body>
-          <MyLoading show={this.state.isLoading}/>
           <FlatList
             keyExtractor={this.state.pokemons.id}
             data={this.state.pokemons}

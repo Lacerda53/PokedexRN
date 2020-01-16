@@ -21,7 +21,8 @@ import {
 export default class Main extends Component {
   state = {
     pokemons: [],
-    isLoading: false
+    isLoading: false,
+    tipo: []
   };
 
   componentDidMount() {
@@ -34,7 +35,7 @@ export default class Main extends Component {
     const repositories = await response.data;
 
     this.setState({
-      pokemons: repositories, isLoading: false
+      pokemons: repositories, isLoading: false, tipo: repositories.tipoPoke
     });
   }
   render() {
@@ -44,11 +45,12 @@ export default class Main extends Component {
           <Title>Pokedex</Title>
         </Header>
         <Body>
-          <ActivityIndicator size="large" hidesWhenStopped={this.state.isLoading} />
+          <ActivityIndicator style={{ flex: 1 }} size='large' color='#757575' animating={this.state.isLoading} />
           <FlatList
             keyExtractor={this.state.pokemons.id}
             data={this.state.pokemons}
             numColumns={2}
+            refreshing={true}
             showsVerticalScrollIndicator={false}
             renderItem={({ item }) =>
               <Card style={{ backgroundColor: item.corFundo }} onPress={() => this.NavigateToDetail(item)}>

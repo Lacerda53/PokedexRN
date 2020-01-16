@@ -7,7 +7,7 @@ export default class MyLoading extends Component {
     return (
       <View style={{flex: 1 //(this.props.animating) ? 1 : 0}}
     }}>
-        <Image source={require('~/assets/pokeball.gif')} style={{
+        <Image source={Gif} style={{
           flex: 1, justifyContent: "center", alignItems: "center", width: 300, height:300}}/>
       </View>
     );

@@ -40,11 +40,11 @@ export default class Main extends Component {
   render() {
     return (
       <Container>
-          <MyLoading/>
         <Header>
           <Title>Pokedex</Title>
         </Header>
         <Body>
+          <ActivityIndicator size="large" hidesWhenStopped={this.state.isLoading} />
           <FlatList
             keyExtractor={this.state.pokemons.id}
             data={this.state.pokemons}
